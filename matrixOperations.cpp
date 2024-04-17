@@ -37,3 +37,15 @@ void printMatrix(vector<vector<int>> matrix) { // this function prints the matri
         cout << endl; // this prints a new line
     }
 }
+
+// we will create a function to add two matrices
+
+vector<vector<int>> addMatrices(vector<vector<int>> matrix1, vector<vector<int>> matrix2) { // this function adds two matrices
+    vector<vector<int>> result(matrix1.size(), vector<int>(matrix1[0].size(), 0)); // this creates a matrix with all elements equal to 0
+    for (int i = 0; i < matrix1.size(); i++) { // this loops through the rows
+        for (int j = 0; j < matrix1[i].size(); j++) { // this loops through the columns
+            result[i][j] = matrix1[i][j] + matrix2[i][j]; // this adds the elements
+        }
+    }
+    return result; // this returns the result
+}
