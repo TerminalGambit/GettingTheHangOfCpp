@@ -49,3 +49,46 @@ vector<vector<int>> addMatrices(vector<vector<int>> matrix1, vector<vector<int>>
     }
     return result; // this returns the result
 }
+
+// we will create a function to subtract two matrices
+
+vector<vector<int>> subtractMatrices(vector<vector<int>> matrix1, vector<vector<int>> matrix2) { // this function subtracts two matrices
+    vector<vector<int>> result(matrix1.size(), vector<int>(matrix1[0].size(), 0)); // this creates a matrix with all elements equal to 0
+    for (int i = 0; i < matrix1.size(); i++) { // this loops through the rows
+        for (int j = 0; j < matrix1[i].size(); j++) { // this loops through the columns
+            result[i][j] = matrix1[i][j] - matrix2[i][j]; // this subtracts the elements
+        }
+    }
+    return result; // this returns the result
+}
+
+// we will create the mainVector function
+
+int mainVector() { // this is the main function
+    vector<vector<int>> matrix1 = createMatrix(2, 2); // this creates the first matrix
+    matrix1[0][0] = 1; // this sets the element
+    matrix1[0][1] = 2; // this sets the element
+    matrix1[1][0] = 3; // this sets the element
+    matrix1[1][1] = 4; // this sets the element
+    vector<vector<int>> matrix2 = createMatrix(2, 2); // this creates the second matrix
+    matrix2[0][0] = 5; // this sets the element
+    matrix2[0][1] = 6; // this sets the element
+    matrix2[1][0] = 7; // this sets the element
+    matrix2[1][1] = 8; // this sets the element
+    cout << "Matrix 1:" << endl; // this prints a message
+    printMatrix(matrix1); // this prints the first matrix
+    cout << "Matrix 2:" << endl; // this prints a message
+    printMatrix(matrix2); // this prints the second matrix
+    cout << "Result of adding the matrices:" << endl; // this prints a message
+    vector<vector<int>> result = addMatrices(matrix1, matrix2); // this adds the matrices
+    printMatrix(result); // this prints the result
+    cout << "Result of subtracting the matrices:" << endl; // this prints a message
+    result = subtractMatrices(matrix1, matrix2); // this subtracts the matrices
+    printMatrix(result); // this prints the result
+    return 0; // this returns 0
+}
+
+int main() { // this is the main function
+    mainVector(); // this calls the mainVector function
+    return 0; // this returns 0
+}
